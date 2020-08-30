@@ -2,8 +2,8 @@
 require('dotenv').config();
 
 //libraries
-import express from 'express';
-import bodyParser from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const http = require('http').Server(app);
@@ -11,7 +11,7 @@ const http = require('http').Server(app);
 // Add body parser
 app.use(bodyParser.json());
 
-import path from 'path';
+const path = require('path');
 
 //TODO: more stuff goes here
 
