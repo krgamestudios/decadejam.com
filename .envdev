@@ -1,0 +1,8 @@
+DB_HOST=localhost
+DB_USER=decadejam
+DB_PASS=charizard
+DB_NAME=decadejam
+DB_PORT=3306
+
+WEB_ADDRESS=localhost
+WEB_PORT=8080
