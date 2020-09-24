@@ -2,7 +2,8 @@ import { LOGIN, LOGOUT } from "../actions/account";
 
 const initialStore = {
 	id: 0,
-	token: 0
+	token: 0,
+	//TODO: username, email
 };
 
 export const accountReducer = (store = initialStore, action) => {

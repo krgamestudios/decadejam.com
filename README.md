@@ -2,6 +2,11 @@
 
 This is the unofficial website for decade jam! If you see any eggs, please report them.
 
+## Required Software
+
+* pm2
+* MongoDB
+
 ## To Build The Site Locally
 
 * Clone the repo to your machine
@@ -21,3 +26,14 @@ There are two main parts to this project - the server and the client. The server
 Open a pull request, and I'll get to it as soon as I can!
 
 Also remember to add your name to `/client/markdown/credits.md` and "Designed and Developed By".
+
+## Upcoming Features
+
+* Login/logout/password recover
+* Personal Blogs for each user
+* Upload games for each user
+* Version control for each user
+* Store page for each game, money going to the creator (a user)
+* Donate button for each user
+* Payment options include stripe and paypal
+* Public API for app access

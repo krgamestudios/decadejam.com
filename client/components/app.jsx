@@ -10,7 +10,7 @@ import '../style/shared.css';
 import Header from './panels/header';
 import Footer from './panels/footer';
 
-import MarkdownWrapper from './pages/markdown_wrapper';
+import MarkdownWrapper from './pages/markdown-wrapper';
 
 //lazy route loading (with error handling)
 const onLoading = (props) => {
@@ -56,12 +56,18 @@ class App extends React.Component {
 					<Switch>
 						<LazyRoute exact path='/' component={() => import('./pages/home')} />
 
+						<LazyRoute path='/signup' component={() => import('./pages/signup')} />
+						<LazyRoute path='/login' component={() => import('./pages/login')} />
+						<LazyRoute path='/passwordchange' component={() => import('./pages/password-change')} />
+						<LazyRoute path='/passwordrecovery' component={() => import('./pages/password-recovery')} />
+						<LazyRoute path='/passwordreset' component={() => import('./pages/password-reset')} />
+
 						{ /* eslint-disable-next-line require-await */ }
-						<LazyRoute path='/privacypolicy' component={async () => () => <MarkdownWrapper url={require('../markdown/privacy_policy.md').default} />} />
+						<LazyRoute path='/privacypolicy' component={async () => () => <MarkdownWrapper url={require('../markdown/privacy-policy.md').default} />} />
 						{ /* eslint-disable-next-line require-await */ }
 						<LazyRoute path='/credits' component={async () => () => <MarkdownWrapper url={require('../markdown/credits.md').default} />} />
 
-						<LazyRoute path='*' component={() => import('./pages/page_not_found')} />
+						<LazyRoute path='*' component={() => import('./pages/page-not-found')} />
 					</Switch>
 				</div>
 				<Footer />

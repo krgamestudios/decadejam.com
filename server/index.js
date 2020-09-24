@@ -1,7 +1,11 @@
 //environment variables
 require('dotenv').config();
 
-//libraries
+//setup the database
+const { initializeDB } = require('./database');
+initializeDB();
+
+//network libraries
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -11,12 +15,13 @@ const http = require('http').Server(app);
 // Add body parser
 app.use(bodyParser.json());
 
-const path = require('path');
+//add each route
+app.use('/api', require('./routes/accounts'));
 
 //TODO: more stuff goes here
 
 //send compressed files
-app.get('*.js', (req, res, next) => {
+app.get('*.js*', (req, res, next) => {
 	req.url = req.url + '.gz';
 	res.set('Content-Encoding', 'gzip');
 	res.set('Content-Type', 'text/javascript');
@@ -29,6 +34,9 @@ app.get('*.css', (req, res, next) => {
 	res.set('Content-Type', 'text/css');
 	next();
 });
+
+//get the path library
+const path = require('path');
 
 //send static files
 app.use('/', express.static(path.resolve(__dirname, '../public')));

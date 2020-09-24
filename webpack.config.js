@@ -22,7 +22,7 @@ module.exports = env => {
 		},
 		devtool: 'source-map',
 		resolve: {
-			extensions: ['.js', '.jsx', '.txt'],
+			extensions: ['.js', '.jsx'],
 		},
 		module: {
 			rules: [
@@ -126,8 +126,12 @@ module.exports = env => {
 			contentBase: path.resolve(__dirname, 'public'),
 			compress: true,
 			port: 8081,
+			index: '',
 			proxy: {
-				'/api/': 'http://localhost:8080/'
+				'/api': {
+					target: 'http://localhost:8080',
+					logLevel: 'debug',
+				}
 			},
 			overlay: {
 				errors: true
